@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	overflow: hidden;
+	background-image: url("./images/background.png");
+}
+
+#title {
+	z-index: 10;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	inset: 0;
+	margin: 0;
+}
+#subtitle {
+	margin-top: 0.5rem;
+}
+
+/* Bird */
+#bird {
+	--bird-top: -1000;
+	--bird-width: 60px;
+	--bird-height: 45px;
+	position: absolute;
+	background-image: url("./images/bird.png");
+	width: var(--bird-width);
+	height: var(--bird-height);
+	left: var(--bird-width);
+	top: calc(var(--bird-top) * 1px);
+}
+
+/* Pipe */
+.pipe {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc(var(--pipe-left) * 1px);
+	width: calc(var(--pipe-width) * 1px);
+}
+.pipe > .segment {
+	position: absolute;
+	width: 100%;
+	background-color: yellowgreen;
+}
+.pipe > .top {
+	top: 0;
+	bottom: calc(var(--hole-top) * 1px);
+}
+.pipe > .bottom {
+	bottom: 0;
+	top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height) * 1px));
+}
+
+.hidden {
+	display: none !important;
+}
